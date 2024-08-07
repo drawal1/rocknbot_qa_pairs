@@ -1,10 +1,12 @@
 # Question/Answer Pair 1
 
 Question: what are the cipher suites supported by RadiantOne v7.4?
+
 Answer: To determine the cipher suites supported by the RadiantOne:
 The default SSL/TLS protocol options are SSLv2Hello, SSL v3, TLSv1, TLSv1.1 TLSv1.2 and TLS v1.3. Some of the less secure protocols in this list are disabled by default in the <RLI_HOME>/jdk/jre/lib/security/java.security file, noted in the jdk.tls.disabledAlgorithms property.
 Out of the available protocols, not in the disabled list, you can limit which ones you want RadiantOne to support. You can limit the protocols from the Main Control Panel > Settings Tab > Security section > SSL sub-section. Click Change next to Enabled SSL Protocols. Select the protocols to support and click OK. Restart the RadiantOne service on all nodes.
 If you want to support one of the less secure protocols, edit the java.security file and remove the protocol from the jdk.tls.disabledAlgorithms value. Then, make sure it is enabled in RadiantOne. Restart RadiantOne on all nodes. If a protocol is enabled in RadiantOne, but in the list of disabled algorithms in the java.security file, it will not be supported at runtime for SSL communication.
+
 For more details, see: <https://developer.radiantlogic.com/idm/v7.4/sys-admin-guide/06-security/#supported-cipher-suites>
 
 
