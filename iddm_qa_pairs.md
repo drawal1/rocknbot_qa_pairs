@@ -658,6 +658,14 @@ For more details, see: <https://developer.radiantlogic.com/idm/v7.4/hardware-siz
 
 # Question/Answer Pair 50
 
+Question: What is adequate memory size for RadiantOne v8.1?
+
+Answer: 150GB.
+
+For more details, see: <https://developer.radiantlogic.com/idm/v7.4/hardware-sizing-guide/06-memory/>
+
+# Question/Answer Pair 51
+
 Question: What is the ideal memory map count, user limits and swap space for deploying RadiantOne v7.4 on Linux?
 
 Answer: Recommended memory map count is 262144, file descriptors can be set to 65536, and Swap should be disabled if possible (/etc/fstab) or configured to prevent swapping under normal usage (set vm.swappiness to a value <=20 which is the percentage of RAM left before the system starts to swap). 
