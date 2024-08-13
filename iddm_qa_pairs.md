@@ -12,7 +12,7 @@ For more details, see: <https://developer.radiantlogic.com/idm/v7.4/sys-admin-gu
 
 # Question/Answer Pair 2
 
-Question: How do I create a virtual view of Entra ID (formerly named Azure AD)?
+Question: How do I create a virtual view of Entra ID (formerly named Azure AD) in RadiantOne v7.4?
 
 Answer: To create a virtual view of Entra ID in RadiantOne v7.4, you can follow these steps:
 1. In Entra ID, create an application and make note of the APPLICATION ID and SECRET KEY generated. You will need these values in the next steps.
