@@ -663,3 +663,31 @@ Question: What is the ideal memory map count, user limits and swap space for dep
 Answer: Recommended memory map count is 262144, file descriptors can be set to 65536, and Swap should be disabled if possible (/etc/fstab) or configured to prevent swapping under normal usage (set vm.swappiness to a value <=20 which is the percentage of RAM left before the system starts to swap). 
 
 For more details, see: <https://developer.radiantlogic.com/idm/v7.4/hardware-sizing-guide/04-linux-environments/>
+
+# Question/Answer Pair 51
+
+Question: How do I remap foreign security principals returned in groups from Active Directory in v7.4?
+
+Answer: 1. Create an LDAP proxy view for the primary Active Directory domain and then use a "merge tree" to merge in the Active Directory domain where the foreign security principals are located.
+2. Select the proxy view node associated with the main Active Directory and on the Objects tab click ADD.
+3. Select the group object and click OK.
+4. Click Save and click Yes to confirm
+5. At the bottom of the Objects tab, click EDIT next to Define Computed Attributes.
+6. Click ADD.
+7. Enter member for the attribute name.
+8. Click FUNCTION to indicate the value of the member attribute should be computed with a function.
+9. Select remapDN(attr2remap,dataSourceID,externalBaseDN,scope,externalIdAttr) and 
+click OK. This function remaps a member value when the RDN value matches 
+ObjectSID for a user entry. 
+10. Select the member attribute from the attr2remp drop-down list.
+11. Select the “vds” data source for the data source ID.
+12. Check the External Base DN option and point to the branch in the virtual view where the 
+users are located. (the merged tree location where the second Active Directory is mounted in step 1).
+13. Enter ObjectSID for the externalIdAttr.
+14. Click OK.
+15. Click Validate.
+16. Click OK and OK again to exit the Computed Attribute Window.
+17. Click Save. 
+
+With this remapping, any query containing a filter to look for a specific group returns the entry with the member attribute containing the DNs 
+for the foreign user DN (e.g. CN=S-1-5-21-4199197291-1226998611-1231062227-1104,CN=ForeignSecurityPrincipals,o=delegated admin) translated into the actual user DN represented by the foreign security principal value (e.g. CN=Sally Europe,CN=User,o=delegated admin).
