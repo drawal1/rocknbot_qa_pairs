@@ -20,7 +20,7 @@ Question: How can I purge timeslots when using Identity Analytics in SaaS?
 Answer: In the SaaS the behavior regarding timeslots purge is the same as in the Self-managed. So you have to hide the timeslots in the web portal, and when the next data upload will be launched (scheduled), the related timeslots will be removed.
 Note that if you are uploading data manually (through the batch) and not scheduling the data upload, the timeslots will remain hidden, but this has no incidence on the reporting, those timeslots will be totally ignore.
 
-For more details, see: https://developer.radiantlogic.com/ia/version-1.5/run-ops/purge/![image](https://github.com/user-attachments/assets/c11a3fe0-e7fa-4be5-9b00-72f791bec259) 
+For more details, see: [Purging Timeslots]https://developer.radiantlogic.com/ia/version-1.5/run-ops/purge/
 
 # Question/Answer Pair 4
 
@@ -49,6 +49,6 @@ This process ensures smooth data extraction, encryption, and automated upload to
 For cloud applications/repositories, you can also leverage the available connectors directly from your SaaS instance like for Entra ID (ex Azure) and Identity Data Management.
 
 For more details, see: 
-[Powershell extraction configuration](https://developer.radiantlogic.com/ia/version-1.5/configuration/powershell-extraction/)
+[Powershell Extraction Configuration](https://developer.radiantlogic.com/ia/version-1.5/configuration/powershell-extraction/)
 [Azure Connector Configuration](https://developer.radiantlogic.com/ia/version-1.5/connectors/azure-connector/)
 [Identity Data Management Integration](https://developer.radiantlogic.com/ia/version-1.5/integrations/iddm/)
