@@ -49,3 +49,41 @@ This process ensures smooth data extraction, encryption, and automated upload to
 For cloud applications/repositories, you can also leverage the available connectors directly from your SaaS instance like for Entra ID (ex Azure) and Identity Data Management.
 
 For more details, see: [Powershell Extraction Configuration](https://developer.radiantlogic.com/ia/version-1.5/configuration/powershell-extraction/), [Azure Connector Configuration](https://developer.radiantlogic.com/ia/version-1.5/connectors/azure-connector/), [Identity Data Management Integration](https://developer.radiantlogic.com/ia/version-1.5/integrations/iddm/)
+
+# Question/Answer Pair 5
+
+Question: Could you provide me with the compatibility matrix between the versions of IAP and the core product versions of IDA?
+Answer: The compatibility matrix shows which versions of the Identity Analytics Platform (IAP) work with different core product versions of Identity Analytics (IDA). Here’s a summary based on the versions you might be looking for:
+For IAP versions 1.0 to 1.2:
+- Curie R1: Compatible
+- Curie R2: Compatible
+- Curie R3 SP4: Compatible
+- Descartes R2: Compatible
+- Descartes R4: Compatible
+For IAP versions 1.3 to 1.7:
+- Curie R1: Not Compatible
+- Curie R2: Compatible
+- Curie R3 SP4: Compatible
+- Descartes R2: Compatible
+- Descartes R4: Compatible
+For IAP version 1.8:
+- Curie R1: Not Compatible
+- Curie R2: Not Compatible
+- Curie R3 SP4: Compatible
+- Descartes R2: Compatible
+- Descartes R4: Compatible
+For IAP versions 2.0 to 2.2:
+- Curie R1: Not Compatible
+- Curie R2: Not Compatible
+- Curie R3 SP4: Not Compatible
+- Descartes R2: Compatible
+- Descartes R4: Compatible
+For IAP version 3.0:
+- Curie R1: Not Compatible
+- Curie R2: Not Compatible
+- Curie R3 SP4: Not Compatible
+- Descartes R2: Not Compatible
+- Descartes R4: Compatible
+This should give you a clear idea of which versions are compatible with each other.
+
+For more details, see: [Identity Analytics Portal Realease Overview](https://developer.radiantlogic.com/ia/iap-3.0/identity-analytics/iap-release/01-iap-release-overview/)
