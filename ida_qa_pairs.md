@@ -54,31 +54,31 @@ For more details, see: [Powershell Extraction Configuration](https://developer.r
 
 Question: Could you provide me with the compatibility matrix between the versions of IAP and the core product versions of IDA?
 Answer: The compatibility matrix shows which versions of the Identity Analytics Platform (IAP) work with different core product versions of Identity Analytics (IDA). Here’s a summary based on the versions you might be looking for:
-For IAP versions 1.0 to 1.2:
+1. For IAP versions 1.0 to 1.2:
 - Curie R1: Compatible
 - Curie R2: Compatible
 - Curie R3 SP4: Compatible
 - Descartes R2: Compatible
 - Descartes R4: Compatible
-For IAP versions 1.3 to 1.7:
+2. For IAP versions 1.3 to 1.7:
 - Curie R1: Not Compatible
 - Curie R2: Compatible
 - Curie R3 SP4: Compatible
 - Descartes R2: Compatible
 - Descartes R4: Compatible
-For IAP version 1.8:
+3. For IAP version 1.8:
 - Curie R1: Not Compatible
 - Curie R2: Not Compatible
 - Curie R3 SP4: Compatible
 - Descartes R2: Compatible
 - Descartes R4: Compatible
-For IAP versions 2.0 to 2.2:
+4. For IAP versions 2.0 to 2.2:
 - Curie R1: Not Compatible
 - Curie R2: Not Compatible
 - Curie R3 SP4: Not Compatible
 - Descartes R2: Compatible
 - Descartes R4: Compatible
-For IAP version 3.0:
+5. For IAP version 3.0:
 - Curie R1: Not Compatible
 - Curie R2: Not Compatible
 - Curie R3 SP4: Not Compatible
