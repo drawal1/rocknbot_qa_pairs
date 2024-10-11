@@ -691,3 +691,14 @@ users are located. (the merged tree location where the second Active Directory i
 
 With this remapping, any query containing a filter to look for a specific group returns the entry with the member attribute containing the DNs 
 for the foreign user DN (e.g. CN=S-1-5-21-4199197291-1226998611-1231062227-1104,CN=ForeignSecurityPrincipals,o=delegated admin) translated into the actual user DN represented by the foreign security principal value (e.g. CN=Sally Europe,CN=User,o=delegated admin).
+
+# Question/Answer Pair 52
+
+Question: How can client's query for a user's nested group memberships for entries stored in the RadiantOne directory v7.4?
+
+Answer: Client's can search a RadiantOne directory for nested group members using LDAP_MATCHING_RULE_IN_CHAIN. The following example is used to describe the ability to search group membership for a user that is a member of a nested group.
+User Ada Rule (identified with a DN of uid=Ada_Rule,ou=Administration,o=companydirectory) is a member of a group named WebUsers. The WebUsers group is a member of a group named Intern. The Intern group is a member of a group named AllUsers. Ada is implicitly a member of WebUsers, Intern and AllUsers. To query RadiantOne for a list of all groups Ada is a member of, the following filter leveraging the LDAP_MATCHING_RULE_IN_CHAIN OID can be used:
+(uniquemember:1.2.840.113556.1.4.1941:=uid=Ada_Rule,ou=Administration,o=companydirectory)
+
+For more details, see: <https://developer.radiantlogic.com/idm/v7.4/namespace-configuration-guide/05-radiantone-universal-directory/#searching-for-group-members-using-ldap_matching_rule_in_chain>
+
