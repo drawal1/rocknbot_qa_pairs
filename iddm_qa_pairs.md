@@ -702,3 +702,16 @@ User Ada Rule (identified with a DN of uid=Ada_Rule,ou=Administration,o=companyd
 
 For more details, see: <https://developer.radiantlogic.com/idm/v7.4/namespace-configuration-guide/05-radiantone-universal-directory/#searching-for-group-members-using-ldap_matching_rule_in_chain>
 
+# Question/Answer Pair 53
+
+Question: In RadiantOne version 7.4, where can I find the Task Scheduler?
+
+Answer: 1. Open the Main Control Panel associated with the RadiantOne leader node and use the link in the upper right to switch to the Server Control Panel.
+2. In the Server Control Panel, click on the **Tasks** tab.
+3. In this section, you can start and stop the scheduler as well as manage defined tasks.
+4. You will see a task list detailing the tasks that have been added to the scheduler and their statuses.
+If you want to make changes or view details about specific tasks, you can click on the relevant task in the list to view or edit its configuration.
+Here are some potentially helpful documentation links:
+- https://github.com/radiantlogic-v8/documentation-new/blob/v7.4/documentation/logging-and-troubleshooting-guide/06-task-scheduler-and-tasks.md
+- https://github.com/radiantlogic-v8/documentation-new/blob/v7.4/documentation/sys-admin-guide/01-introduction.md
+- https://github.com/radiantlogic-v8/documentation-new/blob/v7.4/documentation/installation-guide/01-introduction.md
