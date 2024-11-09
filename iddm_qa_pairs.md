@@ -715,3 +715,23 @@ Here are some potentially helpful documentation links:
 - https://github.com/radiantlogic-v8/documentation-new/blob/v7.4/documentation/logging-and-troubleshooting-guide/06-task-scheduler-and-tasks.md
 - https://github.com/radiantlogic-v8/documentation-new/blob/v7.4/documentation/sys-admin-guide/01-introduction.md
 - https://github.com/radiantlogic-v8/documentation-new/blob/v7.4/documentation/installation-guide/01-introduction.md
+
+# Question/Answer Pair 54
+
+Question: In RadiantOne version 7.4, How do I delete the default password policy?
+
+Answer: The default password policy cannot be deleted. However, it can be updated to meet your needs, or you can create a custom password policy to override the default one.
+
+To update the default password policy:
+1. Navigate to Main Control Panel > Settings > Security > Password Policies.
+2. Select *Default Policy* fron the list.
+3. Customize the policy and click **SAVE**.
+
+To create a custom password policy:
+1. Navigate to Main Control Panel > Settings > Security > Password Policies.
+2. Click **NEW** Next to *Choose a Password Policy*.
+3. Customize the policy and click **SAVE**.
+   
+Here are some potentially helpful documentation links:
+- https://github.com/radiantlogic-v8/documentation-new/blob/v7.4/documentation/logging-and-troubleshooting-guide/06-task-scheduler-and-tasks.md
+- https://github.com/radiantlogic-v8/documentation-new/blob/v7.4/documentation/sys-admin-guide/01-introduction.md
