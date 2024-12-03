@@ -1,9 +1,9 @@
 # Question/Answer Pair 1
 
-Question: what are the cipher suites supported by RadiantOne v7.4?
+Question: what are the SSL/TLS protocols supported by RadiantOne v7.4?
 
 Answer: To determine the cipher suites supported by the RadiantOne:
-The default SSL/TLS protocol options are SSLv2Hello, SSL v3, TLSv1, TLSv1.1 TLSv1.2 and TLS v1.3. Some of the less secure protocols in this list are disabled by default in the <RLI_HOME>/jdk/jre/lib/security/java.security file, noted in the jdk.tls.disabledAlgorithms property.
+The default SSL/TLS protocol options are SSL v3, TLSv1, TLSv1.1 TLSv1.2 and TLS v1.3. Some of the less secure protocols in this list are disabled by default in the <RLI_HOME>/jdk/jre/lib/security/java.security file, noted in the jdk.tls.disabledAlgorithms property.
 Out of the available protocols, not in the disabled list, you can limit which ones you want RadiantOne to support. You can limit the protocols from the Main Control Panel > Settings Tab > Security section > SSL sub-section. Click Change next to Enabled SSL Protocols. Select the protocols to support and click OK. Restart the RadiantOne service on all nodes.
 If you want to support one of the less secure protocols, edit the java.security file and remove the protocol from the jdk.tls.disabledAlgorithms value. Then, make sure it is enabled in RadiantOne. Restart RadiantOne on all nodes. If a protocol is enabled in RadiantOne, but in the list of disabled algorithms in the java.security file, it will not be supported at runtime for SSL communication.
 
@@ -735,3 +735,30 @@ To create a custom password policy:
 Here are some potentially helpful documentation links:
 - https://github.com/radiantlogic-v8/documentation-new/blob/v7.4/documentation/logging-and-troubleshooting-guide/06-task-scheduler-and-tasks.md
 - https://github.com/radiantlogic-v8/documentation-new/blob/v7.4/documentation/sys-admin-guide/01-introduction.md
+
+# Question/Answer Pair 55
+
+Question: Can RadiantOne extract schemas from custom data sources?
+
+Answer: No, RadiantOne cannot extract schemas from custom data sources. The one exception is for SCIMv2 accessible ones, in which case, the schema can be extracted.  For all other custom data sources, manually define the objects and attributes. This can be done in v7.4 using Main Control Panel > Context Builder > Schema Manager, or in v8.1 using Control Panel > Setup > Data Catalog > Data Sources, Schema tab.
+
+Here are some potentially helpful documentation links:
+- <https://developer.radiantlogic.com/idm/v8.1/configuration/data-sources/schemas/#custom-backends>
+- <https://developer.radiantlogic.com/idm/v7.4/context-builder-guide/schema-manager>
+
+# Question/Answer Pair 56
+
+Question: In RadiantOne v7.4, how can I verify if inter-cluster replication is enabled using command line?
+
+Answer: The inter-cluster replication state is a property of the naming context. The command to see if this is enabled or not is the following: <br>
+`C:\radiantone\vds\bin>vdsconfig.bat get-ctx-prop -namingcontext o=companydirectory -prop  multiMasterReplicatonOn`
+
+A value of true for the multiMasterReplicatonOn property means it is enabled. A value of false means that it is disabled.
+
+Inter-cluster replication leverages the replicationjournal LDAP data source. If you want to know what port the replication process is working on, you need to view the replicationjournal data source in the RadiantOne cluster that is playing the role of the replication journal. You can use this command to get the port property for that data source: <br>
+`C:\radiantone\vds\bin>vdsconfig.bat get-datasource -datasourcename replicationjournal`
+
+Here are some potentially helpful documentation links:
+- <https://developer.radiantlogic.com/idm/v7.4/command-line-configuration-guide/05-data-source-commands/#get-datasource>
+- <https://developer.radiantlogic.com/idm/v7.4/command-line-configuration-guide/10-naming-context-property-commands/#get-ctx-prop>
+- <https://developer.radiantlogic.com/idm/v7.4/deployment-and-tuning-guide/07-deployment-architecture/#inter-cluster-replication-for-universal-directory-stores>
