@@ -762,3 +762,92 @@ Here are some potentially helpful documentation links:
 - <https://developer.radiantlogic.com/idm/v7.4/command-line-configuration-guide/05-data-source-commands/#get-datasource>
 - <https://developer.radiantlogic.com/idm/v7.4/command-line-configuration-guide/10-naming-context-property-commands/#get-ctx-prop>
 - <https://developer.radiantlogic.com/idm/v7.4/deployment-and-tuning-guide/07-deployment-architecture/#inter-cluster-replication-for-universal-directory-stores>
+
+- # Question/Answer Pair 57
+
+Question: What is the Apache Derby database used for in RadiantOne v7.3 and v7.4?
+
+Answer: Apache Derby is installed with RadiantOne, when the "install samples" option is selected during install. There are nine default database data sources defined for the Derby databases installed with RadiantOne (advworks, derbyorders, derbysales, examples, log2db, multistore, northwind, rx500 and vdapdb). These databases support the sample virtual views mounted below o=examples and o=vds naming contexts.  
+
+Derby is also configured as the default database to support the Log to Database functionality for storing vds_server_access.log. However, this isn't required and other JDBC-accessible databases can be used. You can configure the database to use in the log2db data source from: Main Control Panel > Settings tab > Server Backend section > DB Data Sources.
+
+Here are some potentially helpful documentation links:
+- <https://developer.radiantlogic.com/idm/v7.4/logging-and-troubleshooting-guide/03-radiantone-universal-directory/#configuring-the-database-logging-utility-log2db>
+- <https://developer.radiantlogic.com/idm/v7.4/quick-start-guide/02-understanding-default-configuration-and-samples/#database>
+
+- # Question/Answer Pair 58
+
+Question: When were RadiantOne v7.4.10 and v7.4.11 released?
+
+Answer: v7.4.10 was released in May 2024 and v7.4.11 was released in August 2024.
+
+Here are some potentially helpful documentation links:
+- <https://developer.radiantlogic.com/idm/v7.4/release-notes/v7410-release-notes/>
+- <https://developer.radiantlogic.com/idm/v7.4/release-notes/v7411-release-notes/>
+
+- # Question/Answer Pair 59
+
+Question: How do I increase the memory size of Glassfish in RadiantOne v7.3?
+
+Answer: Before increasing the memory size for the application server, it is important to note that the 
+default maximum memory size for the application server is 2048MB. Check the resources 
+available on your server before increasing these values. It is typically recommended to set the 
+Glassfish memory size to a minimum of 3GB.
+
+Connectors and transformations run inside the application server as threads. You can change 
+the overall memory of the application server from the GlassFish Admin Console or directly in the 
+configuration file. 
+
+To increase the memory size for the application server, follow the steps outlined below.
+**Changing the Memory Size from the GlassFish Admin Console**
+1. With the application server running, on Windows, go to Start → All Programs → RadiantOne →
+Tools → Synchronization Tools → Application Server → App Server Admin Console. 
+To start the application server console on Windows or UNIX, open a web browser and go to:
+http://<server where the app server is installed>:<app port set during the install of RadiantOne>
+e.g. http://localhost:4848/
+
+2. Log into the application server console with the user and password you set during the install of 
+RadiantOne.
+ 
+3. Navigate to Configurations → server-config → JVM Settings → JVM Options tab on the right.
+
+4. Change the memory option: -Xmx***m
+The default maximum Java memory size is 2048m.
+
+5. Click Save in the top right corner.
+
+IMPORTANT NOTE – if RadiantOne is deployed in a cluster, the Java memory 
+size for GlassFish must be updated on all nodes
+
+**Changing the Memory Size in the GlassFish Configuration File**
+If for some reason you cannot change the memory from the GlassFish Admin Console, you can 
+also increase the JVM size in the 
+<RLI_HOME>\appserver\glassfish\domains\domain1\config\domain.xml file. Locate the 
+following setting JVM Option setting and change the -Xmx value. 
+<jvm-options>-Xmx2048m</jvm-options>
+IMPORTANT NOTE – if RadiantOne is deployed in a cluster, stop GlassFish and 
+ICS Agent on all nodes prior to modifying domain.xml. Domain.xml must be 
+updated on all cluster nodes. After updating domain.xml, restart GlassFish on 
+the previous ICS leader node and then restart ICS Agent on all cluster nodes.
+
+- # Question/Answer Pair 60
+
+Question: What does LDAP code 35 mean?
+
+Answer: The isLeaf(35) result code was defined for use in LDAPv2, but it has been removed from the LDAPv3 specification. None of the LDAPv2 standards documents provide any guidance on the conditions in which the isLeaf result code should be used, nor does it appear to have been inherited from any of the X.500 specifications from which LDAP is derived. However, it is likely the case that it was intended for use in the event that a requested operation was only allowed to target a non-leaf entry (that is, an entry that has one or more subordinate entries), but targeted a leaf entry.
+
+- # Question/Answer Pair 61
+
+Question: What are some key differences between 7.3.x and 7.4.x, where ‘x’ is the latest version?
+
+Answer: Some of the key new features in v7.4 are:
+1. Revamped the ICS architecture to replace GlassFish and OpenMQ components with services built into RadiantOne.
+2. Added a new section in the Main Control Panel (Settings -> Server Front End -> SCIM) for configuring RadiantOne as a SCIMv2 service. New schemas, resource types, and attribute mappings can be managed here.
+3. Added new deployment and automation resources to our Git repository. These include Docker, Kubernetes, Helm and Terraform artifacts for deploying the RadiantOne Platform on a Kubernetes cluster.
+4. Integrated Context Builder into the Main Control Panel (new tab) and removed the old Eclipse plugin version.
+5. Improved vds_server.log contents to make cascading LDAP operations traceable in the server logs across nodes.
+6. Added csrf header names and values to the directory browser HTTP queries.
+7. Added Context Builder audit log settings to log settings page and added context builder audit log level property to log4j2-control-panel.json in ZooKeeper.
+
+Here are some potentially helpful documentation links:
+- <https://developer.radiantlogic.com/idm/v7.4/release-notes/v740-release-notes/>
