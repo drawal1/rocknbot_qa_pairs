@@ -236,3 +236,22 @@ Answer: Over 150 out-of-the-box controls are provided for identifying risky situ
 
 For more details, see: [Identity Analytics: Control Browse](https://developer.radiantlogic.com/ia/iap-3.2/controls-browser/controls-browser/)
 
+
+# Question/Answer Pair 7
+
+Question: How-To get a stacktrace of a running process?
+Answer: If a process has hung on a specific step on the execution plan and the logs don’t provide any information on what is happening, executing a jstack will print Java thread stack traces for a Java process, core file, or remote debug server.
+It is possible to get a stacktrace by following the further instructions:
+1. Get the Process ID (PID) of the running process using the console or via the task manager.
+2. In the console, type jstack <pid> to print directly the trace, or even better: jstack <pid> > mylog.txt to print the result in a new file mylog.txt.
+You will need multiple jsatcks, so increment the output filename if you are doing this manually (i.e. mylog1.txt, mylog2.txt, etc.).
+3. Make sure to start the command line as an Administrator, or you will get “access denied” error.
+
+If the last command is not recognized as one, it may be necessary to provide the full path to the jstack executable, for example:
+- On Windows: "C:\Program Files\Amazon Corretto\jdk1.8.0_292\bin\jstack.exe" -l <pid> > %TEMP%\mylogN.txt
+- On Linux: sudo /usr/lib/jvm/java-1.8.0-amazon-corretto/bin/jstack -l <pid> > myLogN.txt
+<pid> is to be replaced by the the Process ID, and the myLogN.txt path can vary depending on where you are on your system
+
+Important: It is recommended that you perform several captures, separated by a few seconds, in order to get a better chance of having a workable trace. —
+
+For more details, see: [How-To get a stacktrace of a running process](https://documentation.brainwavegrc.com/Descartes/docs/how-to/misc/get-running-process-stacktrace)
