@@ -851,3 +851,9 @@ Answer: Some of the key new features in v7.4 are:
 
 Here are some potentially helpful documentation links:
 - <https://developer.radiantlogic.com/idm/v7.4/release-notes/v740-release-notes/>
+
+- # Question/Answer Pair 62
+
+Question: Which languages are supported for localization and internationalization for Identity Data Management?
+
+Answer: English
